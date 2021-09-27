@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+require_relative './airport_seeding'
+
+puts 'Seeding...'
+
+seed_airports
+
+puts 'Seeding done.'
