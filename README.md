@@ -1,24 +1,13 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A simple website to book flights. Completed as part of the curriculum at [The Odin Project](https://www.theodinproject.com/paths/full-stack-ruby-on-rails/courses/ruby-on-rails/lessons/flight-booker).
 
-Things you may want to cover:
+## Objectives
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Get more familiar with the advanced things forms can do.
+  - Nested Attributes
+  - Multiple Models affected from a single form.
+- Get accquainted with seed files for populating data to work with.
+- Learn about and use simple_form gem.
+- Get experience with callback functions on models.
+- Get overall more familiar with Rails basics through doing.
