@@ -8,4 +8,11 @@
 <% end %>
 
 <%= params  %>
-
+<br>
+<% @selected_flights.each do |flight| %>
+  <%= flight.departure_time %> <br>
+  <%= flight.departure_date %> <br>
+  <%= flight.origin.name %> <br>
+  <%= flight.destination.name %> <br>
+  <br>
+<% end %>
