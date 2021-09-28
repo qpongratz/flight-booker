@@ -4,6 +4,9 @@
   <%= f.input :origin_id, collection: @airport_options %>
   <%= f.input :destination_id, collection: @airport_options  %>
   <%= f.input :departure_date, collection: @date_options.sort %>
+  <%= f.simple_fields_for :booking do |b| %>
+    <%= b.input :number_of_passengers, collection: (1..4) %>
+  <% end %>
   <%= f.button :submit, 'Find Flights'%>
 <% end %>
 
