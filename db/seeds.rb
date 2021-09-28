@@ -17,6 +17,14 @@
 puts 'Seeding...'
 Airport.create(name: 'San Francisco International Airport', code: 'SFO')
 Airport.create(name: 'John F. Kennedy International Airport', code: 'JFK')
-Flight.create(origin_id: 1, destination_id: 2, departure_time: DateTime.now, duration: 400)
-Flight.create(origin_id: 2, destination_id: 1, departure_time: DateTime.now, duration: 200)
+Flight.create(origin_id: 1, destination_id: 2, departure_date: Date.today, departure_time: Time.now, duration: 400)
+Flight.create(origin_id: 1, destination_id: 2, departure_date: Date.today, departure_time: Time.now, duration: 400)
+Flight.create(origin_id: 1, destination_id: 2, departure_date: Date.today, departure_time: Time.now, duration: 400)
+Flight.create(origin_id: 1, destination_id: 2, departure_date: Date.today, departure_time: Time.now, duration: 400)
+Flight.create(origin_id: 1, destination_id: 2, departure_date: Date.today, departure_time: Time.now, duration: 400)
+Flight.create(origin_id: 2, destination_id: 1, departure_date: Date.today, departure_time: Time.now, duration: 200)
+Flight.create(origin_id: 2, destination_id: 1, departure_date: Date.today, departure_time: Time.now, duration: 200)
+Flight.create(origin_id: 2, destination_id: 1, departure_date: Date.today, departure_time: Time.now, duration: 200)
+Flight.create(origin_id: 2, destination_id: 1, departure_date: Date.today, departure_time: Time.now, duration: 200)
+Flight.create(origin_id: 2, destination_id: 1, departure_date: Date.today, departure_time: Time.now, duration: 200)
 puts 'Seeding complete.'

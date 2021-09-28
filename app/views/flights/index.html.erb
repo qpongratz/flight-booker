@@ -6,7 +6,7 @@
   <%= f.label 'To: ' %>
   <%= f.select(:destination_id, @airport_options) %>
   <%= f.label 'On: ' %>
-  <%= f.select(:departure_time, @date_options) %>
+  <%= f.select(:departure_date, @date_options) %>
   <%= f.label 'Number of tickets: ' %>
   <%= f.select(:number_of_tickets, 1..4) %>
   <%= f.submit 'Find Flights' %>
@@ -14,7 +14,11 @@
 
 <% unless @selected_flights.nil? %>
 <% @selected_flights.each do |flight| %>
-  <p>Flight #:<%= flight.id %></p>
-  <p>From: <%= flight.origin.name %>  -  To: <%= flight.destination.name %></p>
+    <%= flight.id %>
+    <p>From: <%= flight.origin.name %> - To: <%= flight.destination.name %></p>
+    <br>
+    <p><%= flight.departure_time %></p>
+    <br>
 <% end %>
 <% end %>
+
