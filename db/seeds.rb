@@ -14,17 +14,16 @@
 
 # puts 'Seeding done.'
 
-puts 'Seeding...'
+puts 'Seeding airports...'
 Airport.create(name: 'San Francisco International Airport', code: 'SFO')
 Airport.create(name: 'John F. Kennedy International Airport', code: 'JFK')
-Flight.create(origin_id: 1, destination_id: 2, departure_date: Date.today, departure_time: Time.now, duration: 400)
-Flight.create(origin_id: 1, destination_id: 2, departure_date: Date.today, departure_time: Time.now, duration: 400)
-Flight.create(origin_id: 1, destination_id: 2, departure_date: Date.today, departure_time: Time.now, duration: 400)
-Flight.create(origin_id: 1, destination_id: 2, departure_date: Date.today, departure_time: Time.now, duration: 400)
-Flight.create(origin_id: 1, destination_id: 2, departure_date: Date.today, departure_time: Time.now, duration: 400)
-Flight.create(origin_id: 2, destination_id: 1, departure_date: Date.today, departure_time: Time.now, duration: 200)
-Flight.create(origin_id: 2, destination_id: 1, departure_date: Date.today, departure_time: Time.now, duration: 200)
-Flight.create(origin_id: 2, destination_id: 1, departure_date: Date.today, departure_time: Time.now, duration: 200)
-Flight.create(origin_id: 2, destination_id: 1, departure_date: Date.today, departure_time: Time.now, duration: 200)
-Flight.create(origin_id: 2, destination_id: 1, departure_date: Date.today, departure_time: Time.now, duration: 200)
+Airport.create(name: 'Will Rogers International Airport', code: 'OKC')
+Airport.create(name: 'Dallas/Fort Worth International Airport', code: 'DFW')
+Airport.create(name: 'Albuquerque "International Sunport', code: 'ABQ')
+puts 'Seeding flights...'
+100.times do
+  airports = (1..5).to_a.shuffle
+  date = [Date.yesterday, Date.today, Date.tomorrow]
+  Flight.create(origin_id: airports[0], destination_id: airports[1], departure_date: date.sample, departure_time: Time.now, duration: 100)
+end
 puts 'Seeding complete.'
