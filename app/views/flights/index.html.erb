@@ -12,13 +12,17 @@
   <%= f.submit 'Find Flights' %>
 <% end %>
 
-<% unless @selected_flights.nil? %>
-<% @selected_flights.each do |flight| %>
-    <%= flight.id %>
-    <p>From: <%= flight.origin.name %> - To: <%= flight.destination.name %></p>
-    <br>
-    <p><%= flight.departure_time %></p>
-    <br>
-<% end %>
+<% if params[:commit] != 'Find Flights' %>
+  <p>Please search for a flight to book.</p>
+<% elsif @selected_flights.size == 0 %>
+  <p>No flights match selected parameters.</p>
+<% else %>
+  <% @selected_flights.each do |flight| %>
+      <%= flight.id %>
+      <p>From: <%= flight.origin.name %> - To: <%= flight.destination.name %></p>
+      <br>
+      <p><%= flight.departure_time %></p>
+      <br>
+  <% end %>
 <% end %>
 
