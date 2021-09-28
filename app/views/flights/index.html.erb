@@ -1,28 +1,11 @@
 <br><br><br>
 
-<%= form_with url:root_path, method: :get do |f| %>
-  <%= f.label 'From: ' %>
-  <%= f.select(:origin_id, @airport_options) %>
-  <%= f.label 'To: ' %>
-  <%= f.select(:destination_id, @airport_options) %>
-  <%= f.label 'On: ' %>
-  <%= f.select(:departure_date, @date_options) %>
-  <%= f.label 'Number of tickets: ' %>
-  <%= f.select(:number_of_tickets, 1..4) %>
-  <%= f.submit 'Find Flights' %>
+<%= simple_form_for :flight, method: :get do |f| %>
+  <%= f.input :origin_id, collection: @airport_options %>
+  <%= f.input :destination_id, collection: @airport_options  %>
+  <%= f.input :departure_date, collection: @date_options.sort %>
+  <%= f.button :submit, 'Find Flights'%>
 <% end %>
 
-<% if params[:commit] != 'Find Flights' %>
-  <p>Please search for a flight to book.</p>
-<% elsif @selected_flights.size == 0 %>
-  <p>No flights match selected parameters.</p>
-<% else %>
-  <% @selected_flights.each do |flight| %>
-      <%= flight.id %>
-      <p>From: <%= flight.origin.name %> - To: <%= flight.destination.name %></p>
-      <br>
-      <p><%= flight.departure_time %></p>
-      <br>
-  <% end %>
-<% end %>
+<%= params  %>
 
