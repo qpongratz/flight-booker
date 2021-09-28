@@ -1,0 +1,4 @@
+<% @flights.each do |flight| %>
+  <p>Flight #:<%= flight.id %></p>
+  <p>From: <%= flight.origin.name %>  -  To: <%= flight.destination.name %></p>
+<% end %>
