@@ -6,10 +6,15 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-require_relative './airport_seeding'
+# require_relative './airport_seeding'
+
+# puts 'Seeding...'
+
+# seed_airports
+
+# puts 'Seeding done.'
 
 puts 'Seeding...'
-
-seed_airports
-
-puts 'Seeding done.'
+Airport.create(name: 'San Francisco International Airport', code: 'SFO')
+Airport.create(name: 'John F. Kennedy International Airport', code: 'JFK')
+puts 'Seeding complete.'
