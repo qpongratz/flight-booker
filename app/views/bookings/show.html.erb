@@ -1,4 +1,5 @@
-<%= @booking %>
-<% @passengers.each do |passenger| %>
-<%= passenger.name %>
-<% end %>
+<h1>Booking Details</h1>
+<h2>Flight</h2>
+<%= render partial: 'shared/flight_details', locals: {flight: @booking.flight} %>
+<h2>Passengers</h2>
+<%= render @booking.passengers %>
