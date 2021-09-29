@@ -9,7 +9,6 @@
   <% end %>
   <%= f.button :submit, 'Find Flights'%>
 <% end %>
-<%= params[:flight][:booking][:number_of_passengers] %>
 <br>
 <% if params[:commit] != 'Find Flights'%>
   <p>Use Search to book a flight.</p>
@@ -26,9 +25,9 @@
       Departure Time: <%= flight.departure_time.strftime('%H:%M') %> <br>
       Flight Duration: <%= flight.duration %> Minutes <br>
       <%= b.label :flight, "Book Flight ##{flight.id}", for: "booking_flight_#{flight.id}" %>
-      <%= b.radio_button :flight, flight.id%> <br><br>
+      <%= b.radio_button :flight_id, flight.id%> <br><br>
     <% end %>
-    <%= b.hidden_field :number_of_passangers, value: params[:flight][:booking][:number_of_passengers] %>
+    <%= b.hidden_field :number_of_passengers, value: params[:flight][:booking][:number_of_passengers] %>
     <%= b.button :submit, 'Book Flight'%>
   <% end %>
 <% end %>
