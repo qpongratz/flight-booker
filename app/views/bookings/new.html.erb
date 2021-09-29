@@ -1,3 +1,10 @@
 <br><br>
 <%= @booking.flight_id %> <br>
-<%= @booking.number_of_passengers %>
+<%= @booking.number_of_passengers %> <br>
+<% @passengers.each do |passenger| %>
+  <%= passenger %> <br>
+  <%= passenger.id %> <br>
+  <%= passenger.name %> <br>
+  <%= passenger.email %> <br>
+  <%= passenger.booking_id %> <br>
+<% end %>
