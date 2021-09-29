@@ -21,9 +21,7 @@
         on <%= @selected_flights.first.departure_date %></p>
     <% @selected_flights.each do |flight| %>
       <strong>Flight #<%= flight.id%> Details</strong> <br>
-      From <%= flight.origin.code %> to <%= flight.destination.code %> <br>
-      Departure Time: <%= flight.departure_time.strftime('%H:%M') %> <br>
-      Flight Duration: <%= flight.duration %> Minutes <br>
+      <%= render partial: 'flight_details', locals: {flight: flight} %>
       <%= b.label :flight, "Book Flight ##{flight.id}", for: "booking_flight_#{flight.id}" %>
       <%= b.radio_button :flight_id, flight.id%> <br><br>
     <% end %>
