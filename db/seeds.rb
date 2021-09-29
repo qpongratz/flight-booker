@@ -21,9 +21,13 @@ Airport.create(name: 'Will Rogers International Airport', code: 'OKC')
 Airport.create(name: 'Dallas/Fort Worth International Airport', code: 'DFW')
 Airport.create(name: 'Albuquerque "International Sunport', code: 'ABQ')
 puts 'Seeding flights...'
-100.times do
+200.times do
   airports = (1..5).to_a.shuffle
   date = [Date.yesterday, Date.today, Date.tomorrow]
-  Flight.create(origin_id: airports[0], destination_id: airports[1], departure_date: date.sample, departure_time: Time.now, duration: 100)
+  Flight.create(origin_id: airports[0],
+                destination_id: airports[1],
+                departure_date: date.sample,
+                departure_time: Time.utc(2000, 'jan', 1, rand(24), rand(60), rand(60)),
+                duration: rand(100..500))
 end
 puts 'Seeding complete.'
