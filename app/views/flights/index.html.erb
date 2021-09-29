@@ -21,7 +21,7 @@
         on <%= @selected_flights.first.departure_date %></p>
     <% @selected_flights.each do |flight| %>
       <strong>Flight #<%= flight.id%> Details</strong> <br>
-      <%= render partial: 'flight_details', locals: {flight: flight} %>
+      <%= render partial: 'shared/flight_details', locals: {flight: flight} %>
       <%= b.label :flight, "Book Flight ##{flight.id}", for: "booking_flight_#{flight.id}" %>
       <%= b.radio_button :flight_id, flight.id%> <br><br>
     <% end %>

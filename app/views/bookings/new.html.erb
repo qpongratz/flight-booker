@@ -2,10 +2,7 @@
 <h1>Booking Details</h1>
 
 <%= simple_form_for @booking do |b| %>
-  <strong>From:</strong> <%= @booking.flight.origin.name %> <br>
-  <strong>To:</strong> <%= @booking.flight.destination.name %> <br>
-  <strong>On:</strong> <%= @booking.flight.departure_date %> <br>
-  <strong>At:</strong> <%= @booking.flight.departure_time %> <br>
+  <%= render partial: 'shared/flight_details', locals: {flight: @booking.flight} %>
   <%= params %>
   <%= b.hidden_field :flight_id %>
   <%= b.hidden_field :number_of_passengers %>
