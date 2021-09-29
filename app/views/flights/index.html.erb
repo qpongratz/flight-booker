@@ -10,12 +10,25 @@
   <%= f.button :submit, 'Find Flights'%>
 <% end %>
 
-<%= params  %>
 <br>
-<% @selected_flights.each do |flight| %>
-  <%= flight.departure_time %> <br>
-  <%= flight.departure_date %> <br>
-  <%= flight.origin.name %> <br>
-  <%= flight.destination.name %> <br>
-  <br>
+<% if params[:commit] != 'Find Flights'%>
+  <p>Use Search to book a flight.</p>
+<% elsif @selected_flights.size == 0 %>
+  <p>No flights match those parameters.</p>
+<% else %>
+  <%= simple_form_for :booking, method: :get do |f| %>
+    <p> Flights from <%= @selected_flights.first.origin.name %> 
+        to <%= @selected_flights.first.destination.name %>
+        on <%= @selected_flights.first.departure_date %></p>
+    <% @selected_flights.each do |flight| %>
+      <strong>Flight #<%= flight.id%> Details</strong> <br>
+      From <%= flight.origin.code %> to <%= flight.destination.code %> <br>
+      Departure Time: <%= flight.departure_time.strftime('%H:%M') %> <br>
+      Flight Duration: <%= flight.duration %> Minutes <br>
+      <%= f.label :flight, "Book Flight ##{flight.id}", for: "booking_flight_#{flight.id}" %>
+      <%= f.radio_button :flight, flight.id%> <br><br>
+    <% end %>
+    <%= f.hidden_field params[:number_of_passengers] %>
+    <%= f.button :submit, 'Book Flight'%>
+  <% end %>
 <% end %>
