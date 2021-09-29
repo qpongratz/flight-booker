@@ -8,3 +8,14 @@
   <%= passenger.email %> <br>
   <%= passenger.booking_id %> <br>
 <% end %>
+
+<%= simple_form_for @booking do |b| %>
+  <% @passengers.each_with_index do |passenger, i| %>
+    <%= simple_fields_for passenger do |p| %>
+      <h3>Passenger <%= i + 1 %> </h3>
+      <%= p.input :email %>
+      <%= p.input :name %>
+    <% end %>
+  <% end %>
+  <%= b.button :submit, 'Confirm Booking' %>
+<% end %>
