@@ -1,21 +1,19 @@
 <br><br>
-<%= @booking.flight_id %> <br>
-<%= @booking.number_of_passengers %> <br>
-<% @passengers.each do |passenger| %>
-  <%= passenger %> <br>
-  <%= passenger.id %> <br>
-  <%= passenger.name %> <br>
-  <%= passenger.email %> <br>
-  <%= passenger.booking_id %> <br>
-<% end %>
+<h1>Booking Details</h1>
 
 <%= simple_form_for @booking do |b| %>
-  <% @passengers.each_with_index do |passenger, i| %>
-    <%= simple_fields_for passenger do |p| %>
-      <h3>Passenger <%= i + 1 %> </h3>
-      <%= p.input :email %>
-      <%= p.input :name %>
-    <% end %>
+  <strong>From:</strong> <%= @booking.flight.origin.name %> <br>
+  <strong>To:</strong> <%= @booking.flight.destination.name %> <br>
+  <strong>On:</strong> <%= @booking.flight.departure_date %> <br>
+  <strong>At:</strong> <%= @booking.flight.departure_time %> <br>
+  <%= params %>
+  <%= b.hidden_field :flight_id %>
+  <%= b.hidden_field :number_of_passengers %>
+
+  <%= b.simple_fields_for :passengers do |p| %>
+    <h3>Passenger  </h3>
+    <%= p.input :email, required: true %> <br>
+    <%= p.input :name, required: true %>
   <% end %>
-  <%= b.button :submit, 'Confirm Booking' %>
+  <br><%= b.button :submit, 'Confirm Booking' %>
 <% end %>
